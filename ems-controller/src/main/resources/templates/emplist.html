@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>emplist</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" href="../static/css/style.css" />
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="top_content"> 
+				<div id="header">
+					<div id="rightheader">
+						<p>
+							2009/11/20
+							<br />
+						</p>
+					</div>
+					<div id="topheader">
+						<h1 id="title">
+							<a href="#">main</a>
+						</h1>
+					</div>
+					<div id="navigation">
+					</div>
+				</div>
+				<div id="content">
+					<p id="whereami">
+					</p>
+					<h1>
+						Welcome!
+					</h1>
+					<table class="table">
+						<tr class="table_header">
+							<td>
+								序号
+							</td>
+							<td>
+								姓名
+							</td>
+							<td>
+								电话
+							</td>
+							<td>
+								地址
+							</td>
+							<td>
+								操作
+							</td>
+						</tr>
+						<tr th:each="emp:${emps}" class="row1">
+							<td th:text="${empStat.count}">
+								1
+							</td>
+							<td th:text="${emp.name}">
+								zhangshan
+							</td>
+							<td th:text="${emp.phone}">
+								20000
+							</td>
+							<td th:text="${emp.address}">
+								20
+							</td>
+							<td>
+								<a th:href="@{/del?id=}+${emp.id}" href="emplist.html">delete emp</a>&nbsp;<a th:href="@{/load?id=}+${emp.id}" href="updateEmp.html">update emp</a>
+							</td>
+						</tr>
+					</table>
+					<p>
+						<input type="button" class="button" value="Add Employee" onclick="location='/toAdd'"/>
+					</p>
+				</div>
+			</div>
+			<div id="footer">
+				<div id="footer_bg">
+				ABC@126.com
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
